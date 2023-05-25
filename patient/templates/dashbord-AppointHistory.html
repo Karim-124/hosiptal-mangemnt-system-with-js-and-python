@@ -1,0 +1,80 @@
+{% extends "base.html" %} {% load static %}
+<!DOCTYPE html>
+<html lang="en">
+  {% block head_body %}
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashbord</title>
+    <link rel="stylesheet" href="{% static 'patient/css/style-my-app.css' %} ">
+    <link rel="stylesheet" href="{% static 'patient/css/all.min.css' %} ">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css"
+        integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap" rel="stylesheet">
+</head>
+
+<body>
+  
+  
+    {% endblock head_body %}
+     {% block content %}
+
+    <div class="content">
+
+      <div class="search">
+            
+        <i class="fa-solid fa-magnifying-glass "></i>
+        <input class="search-bar" placeholder="Search by Doctor Name" type="text">
+        <div class="dash-btn">
+        </div>
+      </div>
+
+       
+    <table>
+        <tr>
+          <th>Doctor Name</th>
+          <th>Specialization</th>
+          <th>Consultancy Fee</th>
+          <th>Appointment Date / Time</th>
+          <th>Appointment Creation Date </th>
+          <th>Current Status</th>
+          <th>Status</th>
+          <th>Action</th>
+        </tr>
+       {%for Appointment in Data_Appointment%}
+        <tr>
+          <td>{{Appointment.doctor.name}}</td>
+          <td>{{Appointment.doctor.Specialization}}</td>
+          <td>{{Appointment.doctor.salary}} EPG </td>
+          <td>{{Appointment.data_time}}</td>
+          <td>2022-12-09 / 1:33:05</td>
+          
+          <!-- Status -->
+          {% if Appointment.descrption == "None"  %}
+          <td class="active">Waiting</td>
+          {% else %}
+          <td class="active">Done</td>
+          {% endif %}
+            
+          
+          
+          <td><a href="descrption/{{ Appointment.id }}"><i class="fa-solid fa-eye" ></i></td>
+
+          <td><a href="delete/{{ Appointment.id }}"><i class="fa-solid fa-trash"></i></td>
+        </tr>
+        </tr>
+        {%endfor%}
+
+      </div>
+      </table>
+
+    </div>
+    <script src="{% static '/js/patient.js' %}"></script>
+</body>
+{% endblock content %}
+</html>

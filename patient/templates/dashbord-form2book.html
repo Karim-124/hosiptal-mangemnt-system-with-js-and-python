@@ -1,0 +1,90 @@
+{% extends "base.html" %} {% load static %}
+<!DOCTYPE html>
+<html lang="en">
+{% block head_body %}
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dashbord</title>
+  <link rel="stylesheet" href="{% static 'patient/css/style-appointment-two.css' %}">
+  <link rel="stylesheet" href="{% static 'patient/css/all.min.css' %}">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css"
+    integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap" rel="stylesheet">
+</head>
+
+<body>
+  {% endblock head_body %} {% block content %}
+
+  <div class="content">
+
+
+    <div class="card">
+
+      <div class="apointment" id="add_apointment">
+        <div class="form">
+          <div id="container">
+            <!-- This is a division tag for body container -->
+            <div id="body_header">
+              <!--This is a division tag for body header-->
+              <h1>Appointment Request Form</h1>
+            </div>
+
+            <form method="POST" class="inform">
+              {% csrf_token %}
+              <fieldset>
+
+                <label for="date">Name</label>
+                <div class="inico">
+                  <i class="fa-solid fa-user"></i>
+                  <input type="text" id="name" name="user_name" placeholder="type your name" required
+                    pattern="[a-zA-Z0-9]+">
+                </div>
+
+                <label for="date">Phone</label>
+                <div class="inico">
+                  <i class="fa-solid fa-phone"></i>
+                  <input type="tel" id="tel" placeholder=" enter your phone number" name="user_phone_number" required>
+                </div>
+
+                <label for="date">Id</label>
+                <div class="inico">
+                  <i class="fa-solid fa-id-badge"></i>
+                  <input type="tel" id="id" placeholder="enter your id" name="user_num" required>
+                </div>
+
+                <label for="doctor">Choose a doctor:</label>
+                <select name="ScheduleID" id="cars">
+                  {%for available_date in list_available_dates %}
+                  <option value="{{available_date.id}}">{{available_date}}</option>
+                  {% endfor %}
+                </select>
+
+              </fieldset>
+              <div class="button-header">
+                
+                <a href="">
+                  <button class="btn">Submit</button>
+                </a>
+                
+              </div>
+            </form>
+            <a href="{% url 'BookAppointment_1' %}">
+              <button class="btn bt2">Prev</button>
+            </a>
+
+          </div>
+
+
+          <div id="portfolio">
+          </div>
+
+</body>
+{% endblock content %}
+
+</html>

@@ -1,0 +1,92 @@
+{% load static%}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>log in</title>
+    <!-- main template css file -->
+    <link rel="stylesheet" href="{% static 'Css/style.css' %}" />
+    <!-- font awesome library -->
+    <link
+      rel="stylesheet"
+      href="{% static 'fontawesomefree/Css/all.min.css' %}"
+    />
+    <!-- google fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cairo:wght@700&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+
+  <body>
+    <!--start login-->
+    <div class="log" id="id01">
+      <div class="lgn">
+        <div class="logsi">
+          <h1><a href="login">Login</a></h1>
+          <h1><a href="register">Sign Up</a></h1>
+        </div>
+        <div class="error_login">
+          {% for message in messages %}
+          <li {% if message.errors %} class="{{ message.tags }}" {% endif %}>
+            {{ message }}
+          </li>
+          {% endfor %}
+        </div>
+
+        <form method="POST">
+          {% csrf_token %}
+          <div class="input">
+            <i class="fa-solid fa-user"></i>
+            <input
+              type="text"
+              name="username"
+              id=""
+              placeholder="type your username"
+              required
+            />
+          </div>
+          <div class="input">
+            <i class="fa-solid fa-lock"></i>
+            <input
+              type="password"
+              name="password"
+              id="password"
+              placeholder="type your password"
+              required
+            />
+                <span class="eye">
+                    <i id="hide2" class="fa-regular fa-eye-slash"></i>
+                    <i id="hide1" class="fa-regular fa-eye"></i>
+                </span>
+          </div>
+          <div class="lin">
+            <a href="reset_password">Forgot password?</a>
+          </div>
+          <div class="btn">
+            <input type="submit" value="login" />
+          </div>
+        </form>
+        <p>Or Sign Up Using</p>
+        <div class="icon">
+          <a href="#"><i class="fa-brands fa-facebook-f"></i></a>
+          <a href="#"><i class="fa-brands fa-twitter"></i></a>
+          <a href="#"><i class="fa-brands fa-google"></i></a>
+        </div>
+      </div>
+    </div>
+    <!--end login-->
+
+    <script src="{% static '/Js/index.js' %}"></script>
+
+
+    <script src="{% static '/js/index.js' %}"></script>
+    <!-- <script src="{% static '/js/all.min.js' %}"></script> -->
+
+
+  </body>
+</html>

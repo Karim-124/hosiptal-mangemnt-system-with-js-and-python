@@ -1,0 +1,92 @@
+{% extends "manager/manger_base.html" %} {% load static %}
+<!DOCTYPE html>
+<html lang="en">
+{% block head_body %}
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dashbord</title>
+  <link rel="stylesheet" href="{% static 'manager/css/add-user.css' %}">
+  <link rel="stylesheet" href="{% static 'manager/css/all.min.css' %}">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css"
+    integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap" rel="stylesheet">
+</head>
+
+<body>
+  
+  {% endblock head_body %}
+
+  {% block content %}
+  <div class="content">
+    <div class="sebtn">
+
+      <div class="dashbtn">
+        <a href="#">
+          <button>home</button>
+        </a>
+      </div>
+    </div>
+<!--  -->
+ <div class="error_login">
+        <li>{{form.errors}}</li>
+        </div>
+
+
+
+      <div class="add-doctor" id="add_doctor" >
+        <div class="form">
+          <div id="container">
+              <div class="header-section">
+            <h2>Add User</h2>
+          </div>
+            <!-- This is a division tag for body container -->
+            
+            <form  method="post" class="inform">
+              <fieldset>
+                {% csrf_token %}
+                <label for="text">User Name</label>
+                <div class="inico">
+                  <i class="fa-solid fa-user"></i>
+                  {{form.username}}
+                </div>
+                <label for="text">password</label>
+                
+                <div class="inico">
+                  <i class="fa-solid fa-lock"></i>
+                  {{form.password1}}
+                    <div class="eye">
+                      <i class="fa-solid fa-eye"></i>
+                      </div>
+                </div>
+
+                <label for="text">confirm your password</label>
+                <div class="inico">
+                  <i class="fa-solid fa-lock"></i>
+                  {{form.password2}}
+                    <div class="eye">
+                    <i class="fa-solid fa-eye"></i>
+                    </div>
+                </div>
+                <div class="btn">
+                  <button type="submit">Submit</button> 
+                </div>
+                
+              </fieldset>
+            </form>
+            
+          </div>
+        </div>
+      </div>
+
+    <!-- end doctors -->
+
+    
+  </div>
+</body>
+{% endblock content %}
+</html>

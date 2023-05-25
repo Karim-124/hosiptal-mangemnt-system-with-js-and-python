@@ -1,0 +1,41 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+  {% block head_body %}
+ 
+  {% endblock head_body %}
+
+  <!-- Start header -->
+  <div class="header_dash">
+
+    <div class="loh">
+      <i class="fa-solid fa-stethoscope"><span class="clog"><span> m</span>edical <span>c</span>are</span></i>
+    </div>
+
+    <div class="right_area">
+      <a href="{% url 'logout' %}" class="logout_btn">Logout</a>
+    </div>
+  </div> 
+  <!-- End header -->
+
+
+  <!-- Start sidebar -->
+
+  <div class="sidebar">
+    <div class="profile">
+      <img  style="border:1px solid #ccc;" src="{{Doctor.profile_img.url}}" alt="">
+      <h4 style=" color: white;"> Dr.{{Doctor.user.username}}</h4>
+    </div>
+    <a href="/Doctor/Dashboard"><i class="fa-sharp fa-solid fa-house"></i><span>home</span></a>
+    <a href="/Doctor/myAppointment"><i class="fa-thin fa-solid fa-calendar-days"></i><span>appiontment</span></a>
+    <a href="/Doctor/patients"><i class="fa-solid fa-user"></i><span>patients</span></a>
+    <a href="/Doctor/Profile"><i class="fa-solid fa-hospital-user"></i><span>my profile</span></a>
+  </div>
+
+  <!-- End sidebar -->
+
+  {% block content %} {% endblock content %}
+
+
+</html>
+

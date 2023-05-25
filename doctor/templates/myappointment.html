@@ -1,0 +1,76 @@
+{% extends "base_dr.html" %} {% load static %}
+<!DOCTYPE html>
+<html lang="en">
+  {% block head_body %}
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dashbord</title>
+  <link rel="stylesheet" href="{% static 'doctor/css/myappointment.css' %}">
+  <link rel="stylesheet" href="{% static 'doctor/css/all.min.css' %}">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css"
+    integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap" rel="stylesheet">
+</head>
+
+<body>
+  <div class="header_dash">
+    <div class="loh">
+      <i class="fa-solid fa-stethoscope"><span class="clog"><span>m</span>edical <span>c</span>are</span></i>
+    </div>
+    <div class="right_area">
+      <a href="{% url 'logout' %}" class="logout_btn">Logout</a>
+    </div>
+  </div>
+
+{% endblock head_body %} {% block content %}
+
+  <div class="content">
+    <div class="sebtn">
+      <div class="search">
+        <i class="fa-solid fa-magnifying-glass "></i>
+        <input class="search-bar" placeholder="Search by Patient Name" type="text">
+      </div>
+      <div class="dashbtn">
+        <a href="dashbord.html">
+          <button>home</button>
+        </a>
+      </div>
+    </div>
+    <div class="table">
+      <table>
+        <tr>
+          <th>Patient Name </th>
+          <th>Specialization</th>
+          <th>Consultancy Fee</th>
+          <th>Appointment Date / Time</th>
+          <th>Appointment Creation Date </th>
+          <th>Current Status</th>
+          <th>Action
+          </th>
+        </tr>
+        {%for Appointment in Data_Appointment %}
+        <tr>
+          <td>{{Appointment.name}}</td>
+          <td>General Physician</td>
+          <td>1200</td>
+          <td>{{Appointment.data_time}}</td>
+          <td>2022-12-09 / 1:33:05</td>
+          <td class="active">Active</td>
+          <td>
+            <i class="fa-solid fa-trash"></i>
+          </td>
+        </tr>
+        {%endfor%}
+      </table>
+    </div>
+  </div>
+  <script src="{% static '/js/patient.js' %}"></script>
+</body>
+ {% endblock content %}
+</html>

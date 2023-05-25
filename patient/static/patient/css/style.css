@@ -1,0 +1,353 @@
+* {
+margin: 0;
+padding: 0;
+box-sizing: border-box;
+font-family: 'Poppins', sans-serif;
+}
+
+.header_dash {
+width: 100%;
+height: 70px;
+background-color: #0c121d;
+padding-left: 20px;
+padding-right: 20px;
+position: fixed;
+top: 0;
+display: flex;
+justify-content: space-between;
+
+}
+
+.loh {
+position: relative;
+width: 100px;
+}
+
+.loh i {
+position: absolute;
+width: 300px;
+top: 20px;
+font-size: 2em;
+color: white;
+}
+
+.loh i .clog {
+font-size: 1em;
+text-transform: capitalize;
+color: white;
+}
+
+.loh i span span:nth-child(2) {
+color: #0745bf;
+}
+
+.loh i span span:nth-child(1) {
+color: #0745bf;
+}
+
+.right_area {
+margin: 25px 0;
+}
+
+.right_area .logout_btn {
+text-decoration: none;
+padding: 10px;
+background-color: #2869FF;
+color: white;
+font-size: 15px;
+border-radius: 2px;
+font-weight: bold;
+text-transform: capitalize;
+}
+
+@media(max-width:450px) {
+.loh i {
+    font-size: 1.5em;
+}
+
+.right_area .logout_btn {
+    padding: 7px;
+
+}
+
+.loh i .clog {
+    font-size: 0.9em;
+}
+}
+
+.sidebar {
+background-color: #151E2F;
+padding-top: 25px;
+width: 250px;
+min-height: 100vh;
+margin-top: 68px;
+transition: 0.5s;
+transition-property: margin-left;
+position: fixed;
+}
+
+@media(max-width:768px) {
+.sidebar {
+    display: none;
+}
+}
+
+
+.profile {
+width: 120px;
+height: 120px;
+margin: 0 auto 30px;
+text-align: center;
+position: relative;
+border: 3px solid white;
+border-radius: 50%;
+overflow: hidden;
+}
+.profile img {
+width: 100%;
+}
+
+.my_file {
+position: absolute;
+bottom: 0;
+left: 0;
+outline: none;
+color: transparent;
+width: 300px;
+padding: 10px 0px;
+cursor: pointer;
+transition: all 0.5s ease;
+background-color: rgba(0, 0, 0, 0.5);
+opacity: 0;
+}
+
+.my_file:hover {
+opacity: 1;
+}
+
+.my_file::-webkit-file-upload-button {
+visibility: hidden;
+}
+
+.my_file::before {
+content: '\f030';
+font-family: "FontAwesome";
+font-size: 15px;
+color: #fff;
+display: inline-block;
+-webkit-user-select: none;
+margin-left: 50px;
+padding-bottom: 20px;
+}
+
+.my_file::after {
+content: "Update";
+font-weight: bold;
+color: #fff;
+display: block;
+position: absolute;
+top: 30px;
+left: 35px;
+}
+
+.myprofile-photo h4 {
+color: #ccc;
+margin-top: -20px;
+margin-bottom: 20px;
+text-align: center;
+}
+
+
+.sidebar a {
+color: #fff;
+width: 100%;
+line-height: 60px;
+text-decoration: none;
+display: block;
+padding-left: 40px;
+transition: 0.5s;
+transition-property: background-color;
+}
+
+.sidebar a:hover {
+border-right: 5px solid #2869FF;
+background-color: #1D283C;
+}
+
+@media(max-width:768px) {
+.sidebar a:hover {
+    border-right: none;
+    border-bottom: 5px solid #2869FF;
+}
+}
+
+.sidebar a i {
+padding-right: 10px;
+}
+
+.content {
+position: absolute;
+top: 70px;
+margin-left: 250px;
+width: calc(100% - 250px);
+min-height: calc(100vh - 70px);
+background-color: #101827;
+transition: 0.5s;
+padding: 20px;
+z-index: -111;
+}
+
+@media(max-width:768px) {
+.sidebar a span {
+    display: none;
+}
+
+.sidebar a {
+    font-size: 20px;
+    margin-left: -25px;
+    width: 80px;
+}
+
+.content {
+    width: calc(100%);
+    margin-left: 0px;
+}
+}
+
+.search-bar {
+background-color: #1D283C;
+border: none;
+color: white;
+font-size: 14px;
+line-height: 24px;
+border-radius: 4px;
+padding: 0px 10px 0px 32px;
+height: 32px;
+background-size: 16px;
+background-repeat: no-repeat;
+background-position: left 10px center;
+width: 100%;
+max-width: 320px;
+transition: 0.2s;
+}
+
+.search-bar:hover {
+border: 1px solid #6291FD;
+}
+
+.search-bar:focus {
+outline: none;
+}
+
+::placeholder {
+color: white;
+}
+
+.card {
+color: white;
+}
+
+.sebtn {
+display: flex;
+justify-content: space-between;
+}
+
+.search {
+position: relative;
+}
+
+.search:hover i {
+color: #6291FD;
+}
+
+.search i {
+position: absolute;
+top: 9px;
+left: 10px;
+color: white;
+}
+
+.dashbtn a {
+text-decoration: none;
+}
+
+.dashbtn a button {
+background-color: #2869FF;
+color: white;
+border: none;
+padding: 5px;
+border-radius: 5px;
+font-size: 20px;
+text-transform: capitalize;
+display: none;
+}
+
+@media(max-width:768px) {
+.dashbtn a button {
+    display: block;
+}
+}
+
+@media(max-width:450px) {
+.dashbtn a button {
+    padding: 3px 5px;
+}
+}
+
+.carddoctor {
+display: flex;
+flex-wrap: wrap;
+justify-content: space-between;
+}
+
+.carddoctor a {
+text-decoration: none;
+transition: 0.5s ease;
+}
+
+.carddoctor a:hover {
+transform: scale(1.1);
+}
+
+.myprofile,
+.myappointment {
+width: 200px;
+height: 200px;
+background-color: #1D283C;
+margin-top: 20px;
+color: white;
+text-align: center;
+border-radius: 10px;
+border: 1px solid #101827;
+box-shadow: 1px 1px 5px #1D283C;
+}
+
+@media(max-width:767px) {
+
+.myprofile,
+.myappointment {
+    margin: 20px auto 0;
+}
+
+}
+
+.myprofile img {
+padding: 10px;
+width: 100px;
+margin-top: 30px;
+}
+
+.myappointment img {
+padding: 10px;
+width: 100px;
+margin-top: 30px;
+}
+
+.myprofile p,
+.myappointment p {
+font-weight: 400;
+margin-top: 5px;
+font-size: 1em;
+margin-bottom: 5px;
+text-transform: capitalize;
+}

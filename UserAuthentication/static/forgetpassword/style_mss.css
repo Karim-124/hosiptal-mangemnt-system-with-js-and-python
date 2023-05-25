@@ -1,0 +1,25 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Cairo', sans-serif;
+    font-size: 16px;
+    transition: all 500ms ease;
+}
+.mss{
+background-color:#1D283C;
+color:white;
+padding:10px;
+line-height: 1.7;
+}
+.mss a{
+text-decoration:none;
+color:#1DA1F2;
+}
+.container {
+    width: 100%;
+    height: calc(100vh);
+    position: absolute;
+    /* display: none; */
+    background-color: #101827;
+}

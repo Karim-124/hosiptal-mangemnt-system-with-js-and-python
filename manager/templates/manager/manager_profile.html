@@ -1,0 +1,95 @@
+{% extends "manager/manger_base.html" %} {% load static %}
+<!DOCTYPE html>
+<html lang="en">
+  {% block head_body %}
+  <head>
+    <!--  {% static 'css/bootstrap.min.css' %}-->
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Dashbord</title>
+    <link rel="stylesheet" href="{% static 'patient/css/profile.css' %} " />
+    <link rel="stylesheet" href="{% static 'manager/css/add-doctor.css'%}" />
+    <link rel="stylesheet"  href="{% static 'manager/css/manager/all.min.css'%}"/>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css"
+      integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+
+  <body>
+    {% endblock head_body %} {% block content %}
+    <div class="content">
+
+
+      <div class="apointment" id="add_apointment">
+        <div class="form">
+          <div class="form_doctor">
+            <p>Edit manager</p>
+            <p>{{request.user.username}}'s Profile</p>
+          </div>
+          <div id="container">
+            <div id="body_header"></div>
+
+            <form method="post" class="inform" enctype="multipart/form-data">
+              {% csrf_token %}
+              <fieldset>
+                <!-- name -->
+                <div class="inico">
+                  <i class="fa-solid fa-user"></i>
+                  {{ form.name }}
+                </div>
+
+                <!-- email -->
+                <div class="inico">
+                  <i class="fa-solid fa-envelope"></i>
+                  {{ form.email }}
+                </div>
+
+                <!-- phone_number -->
+                <div class="inico">
+                  <i class="fa-solid fa-phone"></i>
+                  {{ form.phone_number }}
+                </div>
+
+                <!-- address -->
+                <div class="inico">
+                  <i class="fa-solid fa-location-dot"></i>
+                  {{ form.address }}
+                </div>
+
+                <!-- gender -->
+                <label for="gender">choose your gender</label>
+                {{form.gender}}
+
+                <!-- <div class="inico">
+                </div> -->
+
+
+                <div class="parent-div">
+                  <button class="btn-upload">Choose image</button>
+                  {{form.profile_img}}
+                </div>
+
+              <div class="btn">
+                <button type="submit">Update</button>
+              </div>
+            </form>
+
+          </div>
+        </div>
+        <div id="portfolio"></div>
+      </div>
+    </div>
+  </body>
+  {% endblock content %}
+</html>

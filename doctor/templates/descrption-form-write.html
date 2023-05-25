@@ -1,0 +1,67 @@
+{% extends "base_dr.html" %}{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+{% block head_body %}
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashbord</title>
+    <link rel="stylesheet" href="{% static 'doctor/css/style-app.css' %}">
+    <link rel="stylesheet" href="{% static 'doctor/css/all.min.css' %}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css"
+        integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap" rel="stylesheet">
+</head>
+
+<body>
+<div class="header_dash">
+        <div class="loh">
+            <i class="fa-solid fa-stethoscope"><span class="clog"><span> m</span>edical <span>c</span>are</span></i>
+          </div>
+        <div class="right_area">
+            <a href="{% url 'logout' %}" class="logout_btn">Logout</a>
+        </div>
+    </div>
+  {% endblock head_body %}}
+ {% block content %}
+    <div class="content">
+
+
+        <div class="card">
+
+      <div class="apointment" id="add_apointment" >
+        <div class="form">
+          <div id="container">
+            <!-- This is a division tag for body container -->
+            <div id="body_header">
+              <!--This is a division tag for body header-->
+              <h1>Descrption</h1>
+            </div>
+
+                <label >Write Descrption : </label>
+                <div >
+                 <form method="POST">
+                  {% csrf_token %}
+                  <textarea name="descrption" id="" cols="30" rows="10"></textarea>
+                  <div class="btn">
+                    <button type="submit" >Submit</button>
+                   </div>
+                 </form>
+                  </p>
+                </div>
+                
+             
+              
+          </div>
+        </div>
+      </div>
+
+       
+
+</body>
+{% endblock content %}
+</html>

@@ -1,0 +1,76 @@
+{% extends "manager/manger_base.html" %} {% load static %}
+<!DOCTYPE html>
+<html lang="en">
+{% block head_body %}
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dashbord</title>
+  <link rel="stylesheet" href="{% static 'manager/css/appointment.css'%}">
+  <link rel="stylesheet" href="{% static 'manager/all.min.css'%}">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css"
+    integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+ {% endblock head_body %}
+
+  {% block content %}
+  <div class="content">
+    <div class="sebtn">
+      <div class="search">
+        <i class="fa-solid fa-magnifying-glass "></i>
+        <input class="search-bar" placeholder="Search by Patient Name" type="text">
+      </div>
+      <div class="dashbtn">
+        <a href="dashbord.html">
+          <button>home</button>
+        </a>
+      </div>
+    </div>
+    <div class="table">
+      <table>
+        <tr>
+          <th>Patient Name</th>
+          <th>Doctor Name</th>
+          <th>Specialization</th>
+          <th>Consultancy Fee</th>
+          <th>Appointment Date / Time</th>
+          <th>Current Status</th>
+          <th>Descrption</th>
+        </tr>
+       
+        
+        {% for Appointment_item in Appointment_list  %}
+        <tr>
+          <td>{{Appointment_item.patient.user}}</td>
+          <td>{{Appointment_item.doctor.user}}</td>
+  
+          <td>{{Appointment_item.doctor.Specialization}}</td>
+          <td>{{Appointment_item.doctor.salary}}</td>
+          <td>{{Appointment_item.data_time}}</td>
+          
+          {% if Appointment_item.descrption == "None"  %}
+          <td class="active">Waiting</td>
+          {% else %}
+          <td class="active">Done</td>
+          {% endif %}
+          <td><a href="descrption-form/{{ Appointment_item.id }}"><i class="fa-solid fa-eye" ></td>
+          {% endfor %}
+        </tr>
+      </table>
+
+    </div>
+  </div>
+  <script src="{% static '/js/patient.js' %}"></script>
+
+</body>
+
+{% endblock content %}
+</html>

@@ -1,0 +1,85 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>sign up</title>
+    <!-- main template css file -->
+    <link rel="stylesheet" href="{% static 'Css/style_sign.css'  %}" />
+    <!-- font awesome library -->
+    <link
+      rel="stylesheet"
+      href="{% static 'fontawesomefree/Css/all.min.css' %}"
+    />
+    <!-- google fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cairo:wght@700&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+
+  <body>
+    <!--start signup-->
+    <div class="log2">
+      <div class="lgn2">
+        <div class="logsi">
+          <h1><a href="#">Sign Up</a></h1>
+        </div>
+         <!-- show error here -->
+
+        <div class="error_login" id="error">
+          <li> {{ form.first_name.errors }}</li>
+          <li> {{ form.username.errors }}  </li>
+          <li> {{ form.email.errors }}     </li>
+          <li> {{ form.password1.errors }} </li>
+          <li> {{ form.password2.errors }}  </li>
+          </div>
+
+        <form method="POST">
+          {% csrf_token %}
+          <div class="input">
+            <i class="fa-solid fa-user"></i>
+            {{form.first_name}}
+          </div>
+          <div class="input">
+            <i class="fa-solid fa-user"></i>
+            
+            {{form.username}}
+          </div>
+          <div class="input">
+            <i class="fa-solid fa-envelope"></i>
+            {{form.email}}
+          </div>
+          <div class="input"  >
+            <i class="fa-solid fa-lock"></i>
+            {{form.password1}}
+             <span class="eye">
+                    <i id="hide2" class="fa-regular fa-eye-slash"></i>
+                    <i id="hide1" class="fa-regular fa-eye"></i>
+                </span>
+          </div>
+          <div class="input" >
+            <i class="fa-solid fa-lock"></i>
+            {{form.password2}}
+
+            <span class="eye">
+                    <i id="hide2" class="fa-regular fa-eye-slash"></i>
+                    <i id="hide1" class="fa-regular fa-eye"></i>
+                </span>
+          </div>
+          <div class="btnsign">
+            <input type="submit" value="Sign Up" class="btn2" />
+          </div>
+                   
+        </form>
+      </div>
+    </div>
+    <!--end signup-->
+
+ <script src="{% static '/Js/sinup.js' %}"></script>
+  </body>
+</html>

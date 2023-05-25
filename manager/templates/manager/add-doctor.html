@@ -1,0 +1,100 @@
+{% extends "manager/manger_base.html" %} {% load static %}
+<!DOCTYPE html>
+<html lang="en">
+  {% block head_body %}
+  <head>
+    <!--  {% static 'css/bootstrap.min.css' %}-->
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Dashbord</title>
+    <link rel="stylesheet" href="{% static 'manager/css/add-doctor.css'%}" />
+    <link
+      rel="stylesheet"
+      href="{% static 'manager/css/manager/all.min.css'%}"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css"
+      integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+
+  <body>
+    {% endblock head_body %} {% block content %}
+    <div class="content">
+      <div class="add-doctor" id="add_doctor">
+        <div class="form">
+          <div class="header-section">
+            <h2>Add Doctor</h2>
+          </div>
+          <h1>{{form.errors}}</h1>
+          <div id="container">
+            <!-- This is a division tag for body container -->
+            <form method="post" class="inform">
+              <fieldset>
+                {% csrf_token %}
+
+                <label for="speciality">Enter User</label>
+                {{form.user}}
+
+                <label for="speciality">Choose a doctor speciality:</label>
+                {{form.Specialization}}
+
+                <label for="text">Name</label>
+                <div class="inico">
+                  <i class="fa-solid fa-user-doctor"></i>
+                  {{form.name}}
+                </div>
+
+                <label for="text">Doctor Clinic Address</label>
+                <div class="inico">
+                  <i class="fa-solid fa-location-dot"></i>
+                  {{form.address}}
+                </div>
+
+                <label for="text">doctor consultancy Fee</label>
+                <div class="inico">
+                  <i class="fa-solid fa-money-check"></i>
+                  {{form.salary}}
+                </div>
+                
+                <label for="text">Enter Phone Number</label>
+                <div class="inico">
+                  <i class="fa-solid fa-phone"></i>
+                  {{form.phone_number}}                
+                </div>  
+
+                <label for="text">Doctor Email</label>
+                <div class="inico">
+                  <i class="fa-regular fa-envelope"></i>
+                  {{form.email}}
+                </div>
+
+                <label for="speciality">Enter Gender</label>
+                {{form.gender}}
+              </fieldset>
+              <div class="btn">
+                <a href="dashbord-appointment-two.html">
+                  <button type="submit">Next</button>
+                </a>
+              </div>
+            </form>
+            
+          </div>
+        </div>
+      </div>
+
+      <!-- end doctors -->
+    </div>
+  </body>
+  {% endblock content %}
+</html>

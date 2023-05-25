@@ -1,0 +1,89 @@
+{% extends "manager/manger_base.html" %} {% load static %}
+<!DOCTYPE html>
+<html lang="en">
+{% block head_body %}
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashbord</title>
+    <link rel="stylesheet" href="{% static 'manager/css/style.css'%}">
+    <link rel="stylesheet" href="{% static 'manager/css/all.min.css'%}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css"
+        integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap" rel="stylesheet">
+</head>
+
+<body>
+  {% endblock head_body %}
+
+  {% block content %}
+
+    <div class="content">
+
+        
+        <div class="carddoctor">
+
+            <a href="Dashboard" class="myprofile-link"><div class="myprofile">
+                <img src="{% static 'images/PngItem_1468479.png'%}"  style="border-radius:50%;"  alt="" srcset="">
+                <p>Home</p>
+                <p></p>
+            </div>
+     
+           <a href="ManageUser" class="myprofile-link"><div class="myprofile">
+                <img src="{% static 'images/PngItem_1468479.png'%}" style="border-radius:50%;"  alt="" srcset="">
+                <p>Mange Users</p>
+                <p>Total Users:{{Total_User}}</p>
+            </div>
+          </a>
+
+          <a href="ManageDoctor" class="myprofile-link">
+            <div class="myprofile">
+                <img class="myprofile-image" style="border-radius:50%;"  src="{% static 'images/OQ6UTW0.jpg'%}" alt="">
+                <p>Manage Doctors</p>
+                <p>Total Doctors:{{Total_Doctor}}</p>
+            </div>
+        </a>
+
+        
+       
+<!--        <a href="ManagePatient" class="myprofile-link">-->
+<!--            <div class="myprofile">    -->
+<!--                <img class="myprofile-image" src="{% static 'images/patient.jpg'%}" alt="">-->
+<!--                <p>Mange patient</p>-->
+<!--                <p>Total patients:{{Total_Patient}}</p>-->
+<!--            </div>-->
+<!--        </a>-->
+        <a href="ManageSpecification" class="myprofile-link">
+            <div class="myprofile">    
+                <img class="myprofile-image" style="border-radius:50%;"  src="{% static 'images/patient.jpg'%}" alt="">
+                <p>Manage Specifications</p>
+                <p>Total patients:{{Total_Specialization}}</p>
+            </div>
+        </a>
+       
+        <a href="Appointment" class="myprofile-link">
+            <div class="myprofile">    
+                <img class="myprofile-image" style="border-radius:50%;"  src="{% static 'images/calender.jpg'%}" alt="">
+                <p>Appointment</p>
+                <p>Total Appointments:{{Total_Appointment}}</p>
+            </div>
+        </a>
+                  <a href="ManagerProfile" class="myprofile-link">
+            <div class="myprofile">
+                <img class="myprofile-image" style="border-radius:50%;" src="{{ manager_user.profile_img.url }}" alt="">
+                <p style="font-size:1.1EM;">Manager Profile</p>
+            </div>
+        </a>
+
+        </div>
+
+
+    </div>
+</body>
+{% endblock content %}
+</html>
